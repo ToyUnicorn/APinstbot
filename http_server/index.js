@@ -1,9 +1,9 @@
-import express from 'express';
+import express, { response } from 'express';
 import {requestTime} from './middleware.js';
 
 const app = express();
 const hostname = "localhost";
-const port = 8080;
+const port = 3000;
 
 // Обработчик middleWare - перед запросом
 app.use(requestTime);
@@ -14,11 +14,11 @@ app.listen(port, hostname, () => {
 
 app.route('/')
   .get((req, res) => {
-    res.send('Get a record');
+    res.send('123otvet');
   })
   .post((req, res) => {
     console.log('Add a record', req.test);
-    res.send('Запись создана');
+    res.send('ok');
   })
   .put((req, res) => {
     res.send('Update the record');
